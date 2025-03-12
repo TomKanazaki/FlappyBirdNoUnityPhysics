@@ -7,7 +7,10 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+        if (IsGameOver) return;
+
         IsGameOver = true;
+
         Time.timeScale = 0.0f;
         Debug.Log("Game Over! Press Space bar to Restart!");
     }
@@ -24,6 +27,7 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         Debug.ClearDeveloperConsole();
+        ScoreText.Instance.ResetScore();
         SceneManager.LoadScene("GamePlay");
     }
 }
